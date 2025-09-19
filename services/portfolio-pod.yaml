@@ -1,0 +1,16 @@
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: portfolio
+  labels:
+    app: portfolio
+spec:
+  containers:
+    - name: appcontainer
+      image: victormungai/digital-portfolio:latest
+      ports:
+        - name: portfolio-port
+          containerPort: 80
+
