@@ -1,0 +1,52 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-config
+  labels:
+    app: db
+
+spec:
+  containers:
+    - name: db
+      image: mysql:5.7
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: volume-test
+
+        - mountPath: /test-files
+          name: configfile-mount
+          readOnly: true
+
+      env:
+       - name: MYSQL_DATABASE
+         valueFrom:
+           configMapKeyRef:
+             name: config-map
+             key: MYSQL_DATABASE
+
+
+       - name: MYSQL_ROOT_PASSWORD
+         valueFrom:
+           configMapKeyRef:
+             name: config-map
+             key: MYSQL_ROOT_PASSWORD
+
+
+
+  volumes:
+   - name: volume-test
+     hostPath:
+       path: /data
+       type: DirectoryOrCreate   
+
+
+   - name: configfile-mount
+     configMap:
+         name: config-map
+         items:
+           - key: test-file
+             path: test-file
+
+           - key: test
+             path: test 

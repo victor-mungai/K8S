@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map
+data:
+  MYSQL_ROOT_PASSWORD: password-lol
+  MYSQL_DATABASE: test
+
+  test-file: |
+    This is a test file being mounted onto our container
+  test: |
+    This is another file

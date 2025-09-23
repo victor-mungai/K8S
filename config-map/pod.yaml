@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-test
+spec:
+  containers:
+    - name: db
+      image: mysql:9.4.0
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: test
+      envFrom:
+        - configMapRef:
+           name: db-config
+
+
+  volumes:
+    - name: test
+      hostPath:
+       path: /data
+       type: DirectoryOrCreate
