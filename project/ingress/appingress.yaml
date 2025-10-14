@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vpro-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: champscloset.dpdns.org
+      http:
+        paths: 
+         - path: /
+           pathType: prefix
+           backend:
+             service:
+               name: vproapp-service
+               port: 8080
