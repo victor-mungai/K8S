@@ -6,9 +6,14 @@ metadata:
   labels:
     app: vprodb
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vprodb
   template:
     metadata:
-      app: vprodb
+      labels:
+        app: vprodb
     spec:
       containers:
         - name: vprodb
@@ -26,16 +31,15 @@ spec:
           volumeMounts:
              - mountPath: /var/lib/mysql
                name: vpro-db-data
-          volumes:
+      volumes:
             - name: vpro-db-data
               persistentVolumeClaim:
                  claimName: db-pv-claim       
 
-          initContainers:
+      initContainers:
             - name: busybox
               image: busybox:latest
               volumeMounts:
                 - mountPath: /tmp
                   name: vpro-db-data
-              commad: ['sh' , '-c']
-              args: ['rm' , 'rf' , '/tmp/lost+found'] 
+              args: [ 'sh' , '-c' , 'rm -rf /tmp/lost+found'] 

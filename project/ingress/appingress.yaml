@@ -12,8 +12,9 @@ spec:
       http:
         paths: 
          - path: /
-           pathType: prefix
+           pathType: Prefix
            backend:
              service:
-               name: vproapp-service
-               port: 8080
+               name: app-svc
+               port: 
+                number: 8080
