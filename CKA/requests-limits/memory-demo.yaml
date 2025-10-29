@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mem-deployment
+  labels:
+    dep: memory
+  namespace: mem-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory-test
+  template:
+    metadata:
+     labels:
+      app: memory-test
+     namespace: mem-example
+    spec:
+      containers:
+         - name: memory-demo
+           image: polinux/stress
+           resources:
+             requests:
+              memory: "100Mi"   
+             limits:
+              memory: "200Mi"
+           command: ["stress"]
+           args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]     
+
+  
