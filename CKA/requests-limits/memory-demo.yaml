@@ -4,7 +4,6 @@ metadata:
   name: mem-deployment
   labels:
     dep: memory
-  namespace: mem-example
 spec:
   replicas: 1
   selector:
@@ -14,7 +13,6 @@ spec:
     metadata:
      labels:
       app: memory-test
-     namespace: mem-example
     spec:
       containers:
          - name: memory-demo
