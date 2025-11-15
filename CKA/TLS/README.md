@@ -1,9 +1,9 @@
 HOW TO ONBOARD A USER TO YOUR CLUSTER
 
 
-1. THEY CREATE A PRIVATE KEY AND A CERTIFICATE
-openssl genrsa -out {file-name} 2048    --->  generate private key
-openssl req -new -key adam.key -out adam.csr -subj "/CN=adam"
+1. THEY CREATE A PRIVATE KEY AND A CERTIFICATE \
+openssl genrsa -out {file-name} 2048    --->  generate private key \
+openssl req -new -key adam.key -out adam.csr -subj "/CN=adam" \
 
 2. YOU GENERATE A CERTIFICATE SIGN IN REQUEST MANIFEST TO YOUR LOCAL CLUSTE CA(certificate authority)
 
