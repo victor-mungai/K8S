@@ -1,0 +1,8 @@
+.dev
+.env
+.key
+.csr
+.pem
+.cert
+*-key
+
