@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: "2025-11-18T12:57:50Z"
+  name: read-pods
+  namespace: default
+  resourceVersion: "83171"
+  uid: 413f62a5-7802-4594-ac10-316a522fd5ab
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-reader
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: vic
