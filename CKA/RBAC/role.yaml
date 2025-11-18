@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: "2025-11-18T12:52:38Z"
+  name: pod-reader
+  namespace: default
+  resourceVersion: "82889"
+  uid: f5ea09d4-8d57-4ec9-be7c-ff86f60be866
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
+  - delete
