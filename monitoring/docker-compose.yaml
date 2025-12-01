@@ -1,0 +1,54 @@
+services:
+  grafana:
+    image: grafana/grafana
+    ports: 
+     - "3030:3000"
+    volumes:
+      - grafana-volume:/var/lib/grafana
+    networks:
+      - monitoring-network
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus-volume:/prometheus
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+    extra_hosts:
+      - "host.docker.internal:62.169.16.219"
+    networks:
+      - monitoring-network
+
+  loki:
+    image: grafana/loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - loki-volume:/loki
+    networks:
+      - monitoring-network
+  app:
+    image: app-monitoring
+    ports:
+      - "5000:5000"
+    networks:
+      - monitoring-network
+   
+  alloy:
+    image: grafana/alloy:latest
+    volumes:
+      - ./config.alloy:/etc/alloy/config.alloy:ro
+    ports:
+      - "12345:12345"
+    command: ["--config.file=/etc/alloy/config.alloy"]
+    networks:
+      - monitoring-network
+
+volumes:
+  grafana-volume: {}
+  prometheus-volume: {}
+  loki-volume: {}
+networks:
+  monitoring-network:
+    driver: bridge
