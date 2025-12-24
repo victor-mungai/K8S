@@ -85,6 +85,9 @@ sudo apt-get install -y kubelet kubeadm kubectl --allow-downgrades --allow-chang
 sudo apt-mark hold kubelet kubeadm kubectl
 ) &
 start_spinner "Installing Kubernetes Binaries"
+mkdir -p $HOME/.kube
+sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # 6. Verification
 echo "Verification complete. Component versions:"
