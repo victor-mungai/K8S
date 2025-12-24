@@ -92,5 +92,5 @@ kubeadm version
 kubelet --version
 kubectl version --client
 sudo crictl config runtime-endpoint unix:///var/run/containerd/containerd.sock
-echo "--- Script finished. Next step: Run 'sudo kubeadm init' ---"
+echo "--- Script finished. Next step: Run 'sudo kubeadm config images pull' ---"
 
