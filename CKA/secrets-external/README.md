@@ -1,6 +1,6 @@
-# Vault External Secrets Tutorial
+# Vault External Secrets 
 
-This repo contains all the code needed to follow along with our **[YouTube Tutorial](https://youtu.be/CF6ARIXdA4A)** or **[Written Article](https://rslim087a.github.io/rayanslim/lesson.html?course=vault-external-secrets-course&lesson=introduction)**.
+
 
 ## Prerequisites
 
@@ -59,6 +59,3 @@ spec:
           key: api-key
 ```
 
-## Become a Cloud and DevOps Engineer
-
-Learn every tool that matters: [https://rslim087a.github.io/rayanslim](https://rslim087a.github.io/rayanslim)
