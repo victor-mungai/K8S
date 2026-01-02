@@ -6,10 +6,9 @@
 
 To follow along with this tutorial, you'll need:
 
-- kubectl installed and configured ([https://youtu.be/IBkU4dghY0Y](https://youtu.be/IBkU4dghY0Y))
-- Helm installed: [https://rslim087a.github.io/rayanslim/lesson.html?course=prometheus-grafana-monitoring-course&lesson=helm-installation](https://rslim087a.github.io/rayanslim/lesson.html?course=prometheus-grafana-monitoring-course&lesson=helm-installation)
+- kubectl installed and configured 
+- Helm installed
 
-**Become a Cloud and DevOps Engineer:**[ https://rslim087a.github.io/rayanslim](https://rslim087a.github.io/rayanslim)
 
 ## Install ESO
 
