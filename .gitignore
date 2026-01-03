@@ -5,4 +5,5 @@
 .pem
 .cert
 *-key
-
+.vagrant
+private-key
