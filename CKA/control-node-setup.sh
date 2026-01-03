@@ -77,14 +77,17 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg > /dev/null
 
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list > /dev/null
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.33/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list > /dev/null
 
 sudo apt-get update > /dev/null
 # Use specific versions as requested in the original script
-sudo apt-get install -y kubelet=1.29.6-1.1 kubeadm=1.29.6-1.1 kubectl=1.29.6-1.1 --allow-downgrades --allow-change-held-packages > /dev/null
+sudo apt-get install -y kubelet kubeadm kubectl --allow-downgrades --allow-change-held-packages > /dev/null
 sudo apt-mark hold kubelet kubeadm kubectl
 ) &
 start_spinner "Installing Kubernetes Binaries"
+mkdir -p $HOME/.kube
+sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # 6. Verification
 echo "Verification complete. Component versions:"
@@ -92,5 +95,5 @@ kubeadm version
 kubelet --version
 kubectl version --client
 sudo crictl config runtime-endpoint unix:///var/run/containerd/containerd.sock
-echo "--- Script finished. Next step: Run 'sudo kubeadm init' ---"
+echo "--- Script finished. Next step: Run 'sudo kubeadm config images pull' ---"
 
