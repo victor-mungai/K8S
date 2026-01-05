@@ -1,4 +1,4 @@
-#Kubernetes  
+# Kubernetes  
 The repo is meant to serve both as a **learning log** and a **reference portfolio** for deploying and managing applications in containerized environments.  
 
 ---
