@@ -1,7 +1,4 @@
-🧑‍💻 Kubernetes Learning Repo  
-
-This repository documents my **hands-on Kubernetes learning journey**.  
-It contains YAML manifests, automation scripts, and small projects I built while exploring **Kubernetes and DevOps practices**.  
+#Kubernetes  
 The repo is meant to serve both as a **learning log** and a **reference portfolio** for deploying and managing applications in containerized environments.  
 
 ---
@@ -15,11 +12,3 @@ The repo is meant to serve both as a **learning log** and a **reference portfoli
 
 ---
 
-## 📌 Objectives  
-- Learn how to **deploy applications** on Kubernetes  
-- Practice with **Deployments, Services, Ingress, ConfigMaps, Secrets, and Volumes**  
-- Explore **stateful workloads** (e.g., databases)  
-- Automate with **Ansible** and experiment with **CI/CD pipelines in Jenkins**  
-- Gain experience using **Minikube (local)** and **Kops (cloud)**  
-
----
