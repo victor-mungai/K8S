@@ -7,3 +7,5 @@
 *-key
 .vagrant
 private-key
+.crt
+.csr
