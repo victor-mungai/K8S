@@ -1,0 +1,5 @@
+resources:
+  - ./config.yaml
+  - ./redis.yaml
+  - ./svc.yaml
+

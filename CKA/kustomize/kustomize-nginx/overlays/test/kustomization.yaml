@@ -1,0 +1,26 @@
+namePrefix: dev-
+namespace: dev
+resources:
+  - ../../base
+configMapGenerator:
+ - name: nginx-config
+   behavior: replace
+   files:
+     - index.html
+
+patches:
+ - target:
+     kind: Service
+     name:
+   patch: |-
+         - op : replace
+           path: /spec/ports/0/nodePort
+           value: 32000
+
+ - target:
+     kind: Deployment
+     name:
+   patch: |-
+     - op: replace
+       path: /spec/replicas
+       value: 2
