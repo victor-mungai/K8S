@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod
+  labels:
+    app: pod
+spec:
+  containers:
+     - name: pod
+       image: victormungai/portfolio-frontend
+       ports:
+        - containerPort: 80
