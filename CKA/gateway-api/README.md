@@ -1,6 +1,10 @@
 # Get CRDS
 ```
-kubectl kustomize "https://github.com/nginx/nginx-gateway-fabric/config/crd/gateway-api/standard?ref=v2.3.0" | kubectl apply -f -
+cd ~/K8S/CKA
+git clone --depth 1 --branch v2.3.0 https://github.com/nginx/nginx-gateway-fabric.git
+cd nginx-gateway-fabric
+kubectl apply -k config/crd/gateway-api/standard
+
 ```
 # Install Gateway Api Resources(Gateway controller, gateway class)
 ```
