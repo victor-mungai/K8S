@@ -83,7 +83,7 @@ sudo apt-get update > /dev/null
 # Use specific versions as requested in the original script
 sudo apt-get install -y kubelet kubeadm kubectl --allow-downgrades --allow-change-held-packages > /dev/null
 sudo apt-mark hold kubelet kubeadm kubectl
-sudo kubeadm init --pod-network-cidr=10.0.0.0/16 
+sudo kubeadm init  --pod-network-cidr=10.0.0.0/16 
 ) &
 start_spinner "Installing Kubernetes Binaries"
 mkdir -p $HOME/.kube
